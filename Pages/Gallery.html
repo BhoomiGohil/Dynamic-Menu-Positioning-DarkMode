@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gallery</title>
+  <link rel="stylesheet" type="text/css" href="..\Css\Css.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="main">
+      <header>
+        <a href="Home.html">
+          <h1>Css TricKs</h1>
+        </a>
+        <div class="log"><a href="Login.html">Login</a></div>
+      </header>
+
+      <section>
+
+        <div class="menu">
+          <div class="menu-grid">
+            <div class="menu-nav"><a href="Home.html">Home</a></div>
+            <div class="menu-nav"><a href="Gallery.html">Gallery</a></div>
+            <div class="menu-nav" onclick="category()"><a href="#">Category</a></div>
+
+            <div class="category" style="display:none">
+              <div class="category-menu" onclick="categoryfilter()">
+                Css
+              </div>
+              <div class="category-menu" onclick="categoryfilter()">
+                Bootstrap
+              </div>
+              <div class="category-menu" onclick="categoryfilter()">
+                JavaScript
+              </div>
+            </div>
+
+            <div class="menu-nav"><a href="Setting.html">Setting</a></div>
+            <div class="menu-nav"><a href="Registration.html">Registration</a></div>
+          </div>
+        </div>
+
+        <div class="social">
+          <div class="socialgrid">
+            <div class="social-facebook"></div>
+            <div class="social-instagram"></div>
+            <div class="social-twitter"></div>
+            <div class="social-whatsapp"></div>
+          </div>
+        </div>
+
+        <div class="display">
+          <div class="display-content">
+            <div class="display-grid">
+              <div class="content-name">
+                Gallery
+              </div>
+              <div class="content-gallery">
+                <img src="../Images/Img/1.jpg" class="images">
+                <img src="../Images/Img/1.jpg" class="images">
+                <img src="../Images/Img/1.jpg" class="images">
+                <img src="../Images/Img/1.jpg" class="images">
+                <img src="../Images/Img/1.jpg" class="images">
+                <img src="../Images/Img/1.jpg" class="images">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <script src="../JavaScript/JavaScript.js"></script>
+</body>
+
+</html>
