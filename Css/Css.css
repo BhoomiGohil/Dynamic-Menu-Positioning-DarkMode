@@ -145,9 +145,9 @@ section{
 }
 
 .button-name{
-  width: 100%;
+  width: 62%;
   min-height: 20px;
-  margin: 10px 5px;
+  margin: 10px 0px 10px 70px;
   font-family: 'Raleway', sans-serif;
   font-size: 17px;
   text-align: left;
@@ -160,7 +160,7 @@ section{
   background-color: #560606;
   border-radius:20px;
   position: relative;
-  margin: 7px 0px;
+  margin: 7px 61px;
 }
 
 .button-ball{
@@ -329,16 +329,26 @@ background-color:#560606;
 }
 
 .setting-color-box{
-  width: 95%;
-  min-height:120px;
-  margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(24, 1.9em);
-  grid-template-rows: auto;
+  grid-template-columns: repeat(4, 31px);
+  grid-template-rows: min-content;
 }
 
 .small-color-box{
-  width :21px;
-  height :21px;
-  margin:5px;
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+  border: 1px solid whitesmoke;
+}
+
+.msgtheme{
+  font-size: 8px;
+}
+
+.setting-manual-box{
+  width:100%;
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
 }

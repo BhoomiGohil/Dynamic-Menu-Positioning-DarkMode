@@ -104,10 +104,18 @@
                                     </div>
                                     <div class="setting-button-box">
                                         <div class="button-name">
-                                            Default / Dark :
+                                            Dark :
                                         </div>
                                         <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="theme" onclick="dark()"></div>
+                                            <div class="button-ball" style="left:0%" id="dark" onclick="theme()"></div>
+                                        </div>
+                                        <div class="button-name">
+                                            Default :
+                                            <div class="msgtheme">This option will change your manual theme</div>
+                                        </div>
+                                        <div class="button-back">
+                                            <div class="button-ball" style="left:43%" id="default" onclick="theme()">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="setting-content-index">
@@ -149,103 +157,47 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="setting-color-box">
-                                        <div class="small-color-box" style="background-color: aqua"></div>
-                                        <div class="small-color-box" style="background-color: aquamarine"></div>
-                                        <div class="small-color-box" style="background-color: black"></div>
-                                        <div class="small-color-box" style="background-color: blue"></div>
-                                        <div class="small-color-box" style="background-color: blueviolet"></div>
-                                        <div class="small-color-box" style="background-color: brown"></div>
-                                        <div class="small-color-box" style="background-color: burlywood"></div>
-                                        <div class="small-color-box" style="background-color: cadetblue"></div>
-                                        <div class="small-color-box" style="background-color: chartreuse"></div>
-                                        <div class="small-color-box" style="background-color: chocolate"></div>
-                                        <div class="small-color-box" style="background-color: coral"></div>
-                                        <div class="small-color-box" style="background-color: cornflowerblue"></div>
-                                        <div class="small-color-box" style="background-color: crimson"></div>
-                                        <div class="small-color-box" style="background-color: darkblue"></div>
-                                        <div class="small-color-box" style="background-color: darkcyan"></div>
-                                        <div class="small-color-box" style="background-color: darkgoldenrod"></div>
-                                        <div class="small-color-box" style="background-color: darkgreen"></div>
-                                        <div class="small-color-box" style="background-color: darkmagenta"></div>
-                                        <div class="small-color-box" style="background-color: darkolivegreen"></div>
-                                        <div class="small-color-box" style="background-color: darkorange"></div>
-                                        <div class="small-color-box" style="background-color: darkorchid"></div>
-                                        <div class="small-color-box" style="background-color: darkred"></div>
-                                        <div class="small-color-box" style="background-color: darksalmon"></div>
-                                        <div class="small-color-box" style="background-color: darkslateblue"></div>
-                                        <div class="small-color-box" style="background-color: darkslategray"></div>
-                                        <div class="small-color-box" style="background-color: darkslategrey"></div>
-                                        <div class="small-color-box" style="background-color: darkviolet"></div>
-                                        <div class="small-color-box" style="background-color: deeppink"></div>
-                                        <div class="small-color-box" style="background-color: deepskyblue"></div>
-                                        <div class="small-color-box" style="background-color: dodgerblue"></div>
-                                        <div class="small-color-box" style="background-color: firebrick"></div>
-                                        <div class="small-color-box" style="background-color: forestgreen"></div>
-                                        <div class="small-color-box" style="background-color: fuchsia"></div>
-                                        <div class="small-color-box" style="background-color: gold"></div>
-                                        <div class="small-color-box" style="background-color: goldenrod"></div>
-                                        <div class="small-color-box" style="background-color: green"></div>
-                                        <div class="small-color-box" style="background-color: greenyellow"></div>
-                                        <div class="small-color-box" style="background-color: hotpink"></div>
-                                        <div class="small-color-box" style="background-color: indianred"></div>
-                                        <div class="small-color-box" style="background-color: indigo"></div>
-                                        <div class="small-color-box" style="background-color: lawngreen"></div>
-                                        <div class="small-color-box" style="background-color: lightcoral"></div>
-                                        <div class="small-color-box" style="background-color: lightgreen"></div>
-                                        <div class="small-color-box" style="background-color: lightpink"></div>
-                                        <div class="small-color-box" style="background-color: lightsalmon"></div>
-                                        <div class="small-color-box" style="background-color: lightseagreen"></div>
-                                        <div class="small-color-box" style="background-color: lightskyblue"></div>
-                                        <div class="small-color-box" style="background-color: lightslategray"></div>
-                                        <div class="small-color-box" style="background-color: lightslategrey"></div>
-                                        <div class="small-color-box" style="background-color: lightsteelblue"></div>
-                                        <div class="small-color-box" style="background-color: lime"></div>
-                                        <div class="small-color-box" style="background-color: limegreen"></div>
-                                        <div class="small-color-box" style="background-color: magenta"></div>
-                                        <div class="small-color-box" style="background-color: maroon"></div>
-                                        <div class="small-color-box" style="background-color: mediumaquamarine"></div>
-                                        <div class="small-color-box" style="background-color: mediumblue"></div>
-                                        <div class="small-color-box" style="background-color: mediumorchid"></div>
-                                        <div class="small-color-box" style="background-color: mediumpurple"></div>
-                                        <div class="small-color-box" style="background-color: mediumseagreen"></div>
-                                        <div class="small-color-box" style="background-color: mediumslateblue"></div>
-                                        <div class="small-color-box" style="background-color: mediumspringgreen"></div>
-                                        <div class="small-color-box" style="background-color: mediumturquoise"></div>
-                                        <div class="small-color-box" style="background-color: mediumvioletred"></div>
-                                        <div class="small-color-box" style="background-color: midnightblue"></div>
-                                        <div class="small-color-box" style="background-color: navy"></div>
-                                        <div class="small-color-box" style="background-color: olive"></div>
-                                        <div class="small-color-box" style="background-color: olivedrab"></div>
-                                        <div class="small-color-box" style="background-color: orange"></div>
-                                        <div class="small-color-box" style="background-color: orangered"></div>
-                                        <div class="small-color-box" style="background-color: orchid"></div>
-                                        <div class="small-color-box" style="background-color: palegreen"></div>
-                                        <div class="small-color-box" style="background-color: purple"></div>
-                                        <div class="small-color-box" style="background-color: rebeccapurple"></div>
-                                        <div class="small-color-box" style="background-color: red"></div>
-                                        <div class="small-color-box" style="background-color: royalblue"></div>
-                                        <div class="small-color-box" style="background-color: saddlebrown"></div>
-                                        <div class="small-color-box" style="background-color: salmon"></div>
-                                        <div class="small-color-box" style="background-color: sandybrown"></div>
-                                        <div class="small-color-box" style="background-color: seagreen"></div>
-                                        <div class="small-color-box" style="background-color: sienna"></div>
-                                        <div class="small-color-box" style="background-color: slateblue"></div>
-                                        <div class="small-color-box" style="background-color: slategray"></div>
-                                        <div class="small-color-box" style="background-color: slategrey"></div>
-                                        <div class="small-color-box" style="background-color: springgreen"></div>
-                                        <div class="small-color-box" style="background-color: steelblue"></div>
-                                        <div class="small-color-box" style="background-color: tan"></div>
-                                        <div class="small-color-box" style="background-color: teal"></div>
-                                        <div class="small-color-box" style="background-color: thistle"></div>
-                                        <div class="small-color-box" style="background-color: tomato"></div>
-                                        <div class="small-color-box" style="background-color: turquoise"></div>
-                                        <div class="small-color-box" style="background-color: violet"></div>
-                                        <div class="small-color-box" style="background-color: wheat"></div>
-                                        <div class="small-color-box" style="background-color: white"></div>
-                                        <div class="small-color-box" style="background-color: whitesmoke"></div>
-                                        <div class="small-color-box" style="background-color: yellow"></div>
-                                        <div class="small-color-box" style="background-color: yellowgreen"></div>
+                                    <div class="setting-manual-box">
+                                        <div class="setting-color-box">
+                                            <div class="small-color-box" style="background-color: black"></div>
+                                            <div class="small-color-box" style="background-color: lightslategray"></div>
+                                            <div class="small-color-box" style="background-color: lightslategrey"></div>
+                                            <div class="small-color-box" style="background-color: lightsteelblue"></div>
+                                            <div class="small-color-box" style="background-color: white"></div>
+                                        </div>
+                                        <div class="setting-color-box">
+                                            <div class="small-color-box" style="background-color: navy"></div>
+                                            <div class="small-color-box" style="background-color: darkblue"></div>
+                                            <div class="small-color-box" style="background-color: midnightblue"></div>
+                                            <div class="small-color-box" style="background-color: mediumblue"></div>
+                                            <div class="small-color-box" style="background-color: blue"></div>
+                                            <div class="small-color-box" style="background-color: royalblue"></div>
+                                            <div class="small-color-box" style="background-color: dodgerblue"></div>
+                                        </div>
+                                        <div class="setting-color-box">
+                                            <div class="small-color-box" style="background-color: darkred"></div>
+                                            <div class="small-color-box" style="background-color: brown"></div>
+                                            <div class="small-color-box" style="background-color: firebrick"></div>
+                                            <div class="small-color-box" style="background-color: crimson"></div>
+                                            <div class="small-color-box" style="background-color: red"></div>
+                                            <div class="small-color-box" style="background-color: orangered"></div>
+                                            <div class="small-color-box" style="background-color: chocolate"></div>
+                                            <div class="small-color-box" style="background-color: coral"></div>
+                                            <div class="small-color-box" style="background-color: darkorange"></div>
+                                            <div class="small-color-box" style="background-color: orange"></div>
+                                        </div>
+                                        <div class="setting-color-box">
+                                            <div class="small-color-box" style="background-color: purple"></div>
+                                            <div class="small-color-box" style="background-color: fuchsia"></div>
+                                            <div class="small-color-box" style="background-color: orchid"></div>
+                                        </div>
+                                        <div class="setting-color-box">
+                                            <div class="small-color-box" style="background-color: darkgreen"></div>
+                                            <div class="small-color-box" style="background-color: green"></div>
+                                            <div class="small-color-box" style="background-color: forestgreen"></div>
+                                            <div class="small-color-box" style="background-color: limegreen"></div>
+                                            <div class="small-color-box" style="background-color: lime"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

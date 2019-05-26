@@ -1,28 +1,45 @@
 
-var localStoragetrue = window.localStorage.getItem("Dark");
+var localStoragedarktrue = window.localStorage.getItem("Dark");
+var localStoragedefaulttrue = window.localStorage.getItem("Default");
 
-if (localStoragetrue === "true") {
-    document.querySelector("#theme").style.left = "43%";
+if (localStoragedarktrue === "true") {
+    document.querySelector("#dark").style.left = "43%";
+    document.querySelector("#default").style.left = "0%";
     changeTheme();
 }
-else {
-    document.querySelector("#theme").style.left = "0%";
+else if(localStoragedefaulttrue === "true"){
+    document.querySelector("#default").style.left = "43%";
+    document.querySelector("#dark").style.left = "0%";
     noChangeTheme();
+}
+else if (localStoragedarktrue === "false") {
+    document.querySelector("#dark").style.left = "0%";
+    document.querySelector("#default").style.left = "43%";
+    noChangeTheme();
+}
+else if (localStoragedefaulttrue === "false") {
+    document.querySelector("#default").style.left = "0%";
+    document.querySelector("#dark").style.left = "43%";
+    changeTheme();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function dark() {
-    var right = document.querySelector("#theme").style.left === "43%";
+function theme() {
+    var right = document.querySelector("#dark").style.left === "43%";
 
     if (right) {
-        document.querySelector("#theme").style.left = "0%";
+        document.querySelector("#dark").style.left = "0%";
+        document.querySelector("#default").style.left = "43%";
         window.localStorage.setItem("Dark", false);
+        window.localStorage.setItem("Default", true);
         noChangeTheme();
     }
     else {
-        document.querySelector("#theme").style.left = "43%";
+        document.querySelector("#dark").style.left = "43%";
+        document.querySelector("#default").style.left = "0%";
         window.localStorage.setItem("Dark", true);
+        window.localStorage.setItem("Default", false);
         changeTheme();
     }
 }

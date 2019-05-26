@@ -128,8 +128,8 @@ function menuSides(text) {
     socialgrid.style.gridTemplateColumns = "6em";
     socialgrid.style.gridTemplateRows = "repeat(4, 5em)";
 
-    var right = document.querySelector("#theme").style.left === "43%";
-    var left = document.querySelector("#theme").style.left === "0%";
+    var right = document.querySelector("#dark").style.left === "43%";
+    var left = document.querySelector("#dark").style.left === "0%";
 
     if (right) {
         menu.style.backgroundColor = "rgb(142,142,142)";
@@ -211,8 +211,8 @@ function menuUpDown(text) {
     socialgrid.style.gridTemplateColumns = "repeat(4, 100px)";
     socialgrid.style.gridTemplateRows = "unset";
 
-    var right = document.querySelector("#theme").style.left === "43%";
-    var left = document.querySelector("#theme").style.left === "0%";
+    var right = document.querySelector("#dark").style.left === "43%";
+    var left = document.querySelector("#dark").style.left === "0%";
 
     if (right) {
         menu.style.backgroundColor = "black";
