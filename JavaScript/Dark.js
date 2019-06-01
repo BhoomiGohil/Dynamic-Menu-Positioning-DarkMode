@@ -1,50 +1,68 @@
 
+function setValueColor(header, menu, display, footer, localheader, localmenu, localdisplay, localfooter) {
+    document.querySelector("#header").style.left = header;
+    document.querySelector("#menu").style.left = menu;
+    document.querySelector("#display").style.left = display;
+    document.querySelector("#footer").style.left = footer;
+    window.localStorage.setItem("Header", localheader);
+    window.localStorage.setItem("Menu", localmenu);
+    window.localStorage.setItem("Display", localdisplay);
+    window.localStorage.setItem("Footer", localfooter);
+}
+
+function manualcolor(section) {
+    if (section === "header") {
+        setValueColor('43%','0%','0%','0%',true,false,false,false);
+    }
+    else if (section === "menu") {
+        setValueColor('0%','43%','0%','0%',false,true,false,false);
+    }
+    else if (section === "display") {
+        setValueColor('0%','0%','43%','0%',false,false,true,false);
+    }
+    else if (section === "footer") {
+        setValueColor('0%','0%','0%','43%',false,false,false,true);
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function manualtheme(color) {
+    window.localStorage.setItem("Color",color);
+    noChangeTheme();
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 var localStoragedarktrue = window.localStorage.getItem("Dark");
-var localStoragedefaulttrue = window.localStorage.getItem("Default");
 
 if (localStoragedarktrue === "true") {
     document.querySelector("#dark").style.left = "43%";
-    document.querySelector("#default").style.left = "0%";
     changeTheme();
-}
-else if(localStoragedefaulttrue === "true"){
-    document.querySelector("#default").style.left = "43%";
-    document.querySelector("#dark").style.left = "0%";
-    noChangeTheme();
 }
 else if (localStoragedarktrue === "false") {
     document.querySelector("#dark").style.left = "0%";
-    document.querySelector("#default").style.left = "43%";
     noChangeTheme();
 }
-else if (localStoragedefaulttrue === "false") {
-    document.querySelector("#default").style.left = "0%";
-    document.querySelector("#dark").style.left = "43%";
-    changeTheme();
-}
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function theme() {
     var right = document.querySelector("#dark").style.left === "43%";
 
     if (right) {
         document.querySelector("#dark").style.left = "0%";
-        document.querySelector("#default").style.left = "43%";
         window.localStorage.setItem("Dark", false);
-        window.localStorage.setItem("Default", true);
         noChangeTheme();
     }
     else {
         document.querySelector("#dark").style.left = "43%";
-        document.querySelector("#default").style.left = "0%";
         window.localStorage.setItem("Dark", true);
-        window.localStorage.setItem("Default", false);
         changeTheme();
     }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function changeTheme() {
@@ -120,9 +138,15 @@ function changeTheme() {
     }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function noChangeTheme() {
+    var localStorageHeader = window.localStorage.getItem("Header");
+    var localStorageMenu = window.localStorage.getItem("Menu");
+    var localStorageDisplay = window.localStorage.getItem("Display");
+    var localStorageFooter = window.localStorage.getItem("Footer");
+    var localStorageColor = window.localStorage.getItem("Color");
+
     document.querySelector("body").style.backgroundColor = "white";
 
     var header = document.querySelector("header");
@@ -194,5 +218,3 @@ function noChangeTheme() {
         document.querySelector(".social").style.backgroundColor = "white";
     }
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

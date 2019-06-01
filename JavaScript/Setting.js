@@ -1,4 +1,6 @@
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function setValue(top, right, bottom, left) {
     document.querySelector("#top").style.left = top;
     document.querySelector("#bottom").style.left = bottom;
@@ -41,8 +43,6 @@ function setMenuValue(top, right, bottom, left, topStorage, rightStorage, bottom
     window.localStorage.setItem("Bottom", bottomStorage);
     window.localStorage.setItem("Left", leftStorage);
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function menuinner(text)
 {
@@ -224,7 +224,7 @@ function menuUpDown(text) {
         menu.style.backgroundColor = "black";
         category.style.backgroundColor = "#560606";
         category.style.color = "white";
-        social.style.backgroundColor = "whitesmoke";
+        social.style.backgroundColor = "white";
     }
 }
 
