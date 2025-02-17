@@ -20,31 +20,33 @@
         <a href="Home.html">
           <h1>Css TricKs</h1>
         </a>
-        <div class="log"><a href="Login.html">Login</a></div>
+        <a href="Login.html" class="log">Login</a>
       </header>
 
       <section>
 
         <div class="menu">
           <div class="menu-grid">
-            <div class="menu-nav"><a href="Home.html">Home</a></div>
-            <div class="menu-nav"><a href="Gallery.html">Gallery</a></div>
-            <div class="menu-nav" onclick="category()"><a href="#">Category</a></div>
+            <a href="Home.html" class="menu-nav">Home</a>
+            <a href="Gallery.html" class="menu-nav">Gallery</a>
 
-            <div class="category" style="display:none">
-              <div class="category-menu" onclick="categoryfilter()">
-                Css
-              </div>
-              <div class="category-menu" onclick="categoryfilter()">
-                Bootstrap
-              </div>
-              <div class="category-menu" onclick="categoryfilter()">
-                JavaScript
+            <div class="menu-nav" onclick="category()"><a href="#">Category</a>
+              <div class="category">
+                <a class="category-menu" onclick="categoryfilter()">
+                  Css
+                </a>
+                <a class="category-menu" onclick="categoryfilter()">
+                  Bootstrap
+                </a>
+                <a class="category-menu" onclick="categoryfilter()">
+                  JavaScript
+                </a>
               </div>
             </div>
 
-            <div class="menu-nav"><a href="Setting.html">Setting</a></div>
-            <div class="menu-nav"><a href="Registration.html">Registration</a></div>
+
+            <a href="Setting.html" class="menu-nav">Setting</a>
+            <a href="Registration.html" class="menu-nav">Registration</a>
           </div>
         </div>
 
@@ -64,12 +66,12 @@
                 Gallery
               </div>
               <div class="content-gallery">
-                <img src="../Images/Img/1.jpg" class="images">
-                <img src="../Images/Img/1.jpg" class="images">
-                <img src="../Images/Img/1.jpg" class="images">
-                <img src="../Images/Img/1.jpg" class="images">
-                <img src="../Images/Img/1.jpg" class="images">
-                <img src="../Images/Img/1.jpg" class="images">
+                <img src="../Images/Img/1.jpg" class="content-gallery-image">
+                <img src="../Images/Img/1.jpg" class="content-gallery-image">
+                <img src="../Images/Img/1.jpg" class="content-gallery-image">
+                <img src="../Images/Img/1.jpg" class="content-gallery-image">
+                <img src="../Images/Img/1.jpg" class="content-gallery-image">
+                <img src="../Images/Img/1.jpg" class="content-gallery-image">
               </div>
             </div>
           </div>
@@ -78,8 +80,7 @@
 
     </div>
   </div>
-  <script src="../JavaScript/JavaScript.js"></script>
-  <script src="../JavaScript/Setting.js"></script>
+  <script src="../JavaScript/Category.js"></script>
 </body>
 
 </html>

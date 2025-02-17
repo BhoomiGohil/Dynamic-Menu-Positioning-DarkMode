@@ -26,24 +26,26 @@
             <section>
                 <div class="menu">
                     <div class="menu-grid">
-                        <div class="menu-nav"><a href="Home.html">Home</a></div>
-                        <div class="menu-nav"><a href="Gallery.html">Gallery</a></div>
-                        <div class="menu-nav" onclick="category()"><a href="#">Category</a></div>
+                        <a href="Home.html" class="menu-nav">Home</a>
+                        <a href="Gallery.html" class="menu-nav">Gallery</a>
 
-                        <div class="category" style="display:none">
-                            <div class="category-menu" onclick="categoryfilter()">
-                                Css
-                            </div>
-                            <div class="category-menu" onclick="categoryfilter()">
-                                Bootstrap
-                            </div>
-                            <div class="category-menu" onclick="categoryfilter()">
-                                JavaScript
+                        <div class="menu-nav" onclick="category()"><a href="#">Category</a>
+                            <div class="category">
+                                <a class="category-menu" onclick="categoryfilter()">
+                                    Css
+                                </a>
+                                <a class="category-menu" onclick="categoryfilter()">
+                                    Bootstrap
+                                </a>
+                                <a class="category-menu" onclick="categoryfilter()">
+                                    JavaScript
+                                </a>
                             </div>
                         </div>
 
-                        <div class="menu-nav"><a href="Setting.html">Setting</a></div>
-                        <div class="menu-nav"><a href="Registration.html">Registration</a></div>
+
+                        <a href="Setting.html" class="menu-nav">Setting</a>
+                        <a href="Registration.html" class="menu-nav">Registration</a>
                     </div>
                 </div>
 
@@ -62,110 +64,108 @@
                             <div class="content-name">
                                 Name
                             </div>
-                            <div class="content-description">
-                                <div class="setting">
-                                    <div class="setting-content-index">
-                                        Look :
+                            <div class="setting">
+                                <div class="setting-content-index">
+                                    Look :
+                                </div>
+                                <div class="setting-button-box">
+                                    <div class="button-name">
+                                        Top :
                                     </div>
-                                    <div class="setting-button-box">
-                                        <div class="button-name">
-                                            Top :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:43%" id="top" onclick="menu('top')">
-                                            </div>
-                                        </div>
-                                        <div class="button-name">
-                                            Right :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="right" onclick="menu('right')">
-                                            </div>
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:43%" id="top" onclick="menu('top')">
                                         </div>
                                     </div>
-                                    <div class="setting-button-box">
-                                        <div class="button-name">
-                                            Bottom :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="bottom"
-                                                onclick="menu('bottom')"></div>
-                                        </div>
-                                        <div class="button-name">
-                                            Left :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="left" onclick="menu('left')">
-                                            </div>
+                                    <div class="button-name">
+                                        Right :
+                                    </div>
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:0%" id="right" onclick="menu('right')">
                                         </div>
                                     </div>
-                                    <div class="setting-content-index">
-                                        Theme :
+                                </div>
+                                <div class="setting-button-box">
+                                    <div class="button-name">
+                                        Bottom :
                                     </div>
-                                    <div class="setting-button-box">
-                                        <div class="button-name">
-                                            Default/Dark :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="dark" onclick="theme()"></div>
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:0%" id="bottom" onclick="menu('bottom')">
                                         </div>
                                     </div>
-                                    <div class="setting-content-index">
-                                        Manual Theme :
+                                    <div class="button-name">
+                                        Left :
                                     </div>
-                                    <div class="setting-button-box">
-                                        <div class="button-name">
-                                            Header :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="header"
-                                                onclick="manualcolor('header')">
-                                            </div>
-                                        </div>
-                                        <div class="button-name">
-                                            Menu :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="menu"
-                                                onclick="manualcolor('menu')">
-                                            </div>
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:0%" id="left" onclick="menu('left')">
                                         </div>
                                     </div>
-                                    <div class="setting-button-box">
-                                        <div class="button-name">
-                                            Display :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="display"
-                                                onclick="manualcolor('display')">
-                                            </div>
-                                        </div>
-                                        <div class="button-name">
-                                            Footer :
-                                        </div>
-                                        <div class="button-back">
-                                            <div class="button-ball" style="left:0%" id="footer"
-                                                onclick="manualcolor('footer')">
-                                            </div>
+                                </div>
+                                <div class="setting-content-index">
+                                    Theme :
+                                </div>
+                                <div class="setting-button-box">
+                                    <div class="button-name">
+                                        Default/Dark :
+                                    </div>
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:0%" id="dark" onclick="theme()"></div>
+                                    </div>
+                                </div>
+                                <div class="setting-content-index">
+                                    Manual Theme :
+                                </div>
+                                <div class="setting-button-box">
+                                    <div class="button-name">
+                                        Header :
+                                    </div>
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:0%" id="header"
+                                            onclick="manualcolor('header')">
                                         </div>
                                     </div>
-                                    <div class="setting-content-index">
-                                        Choose Color for Manual Theme :
+                                    <div class="button-name">
+                                        Menu :
                                     </div>
-                                    <div class="msg" style="display:none"></div>
-                                    <div class="setting-button-box">
-                                        <div class="button-name">
-                                            Theme Color :
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:0%" id="menu"
+                                            onclick="manualcolor('menu')">
                                         </div>
-                                        <div class="button-color">
-                                            <input type="color" value="#560606" class="colorpicker">
+                                    </div>
+                                </div>
+                                <div class="setting-button-box">
+                                    <div class="button-name">
+                                        Display :
+                                    </div>
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:0%" id="display"
+                                            onclick="manualcolor('display')">
                                         </div>
-                                        <div class="button-name">
-                                            Font Color :
+                                    </div>
+                                    <div class="button-name">
+                                        Footer :
+                                    </div>
+                                    <div class="button-back">
+                                        <div class="button-ball" style="left:0%" id="footer"
+                                            onclick="manualcolor('footer')">
                                         </div>
-                                        <div class="button-color">
-                                            <input type="color" value="Black" class="colorpicker">
-                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setting-content-index">
+                                    Choose Color for Manual Theme :
+                                </div>
+                                <div class="msg" style="display:none"></div>
+                                <div class="setting-button-box">
+                                    <div class="button-name">
+                                        Theme Color :
+                                    </div>
+                                    <div class="button-color">
+                                        <input type="color" value="#560606" class="colorpicker">
+                                    </div>
+                                    <div class="button-name">
+                                        Font Color :
+                                    </div>
+                                    <div class="button-color">
+                                        <input type="color" value="Black" class="colorpicker">
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
         </section>
     </div>
     </div>
-    <script src="../JavaScript/JavaScript.js"></script>
+    <script src="../JavaScript/Category.js"></script>
     <script src="../JavaScript/Setting.js"></script>
 </body>
 
