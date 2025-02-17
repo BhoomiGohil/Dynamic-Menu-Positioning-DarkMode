@@ -1,3 +1,18 @@
+// Purpose: To handle the setting page.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function toggleCategory() {
+  let category = document.querySelector(".category");
+  category.style.display = category.style.display === "flex" ? "none" : "flex";
+}
+
+const hideCategory = () =>
+  (document.querySelector(".category").style.display = "none");
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Function to set the menu position
 function menuUpDown(text) {
   const menu = document.querySelector(".menu");
   const menuGrid = document.querySelector(".menu-grid");
@@ -92,7 +107,7 @@ function menu(text) {
   menuinner(text);
 }
 
-// Load menu position from localStorage
+// Load menu position from localStorage and set it
 menu(window.localStorage.getItem("Text") || "top");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
