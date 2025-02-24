@@ -577,24 +577,3 @@ section {
   top: 0px;
   left: 0%;
 }
-
-.msg {
-  font-size: 8px;
-  color: #af2525;
-  margin-left: 10px;
-  text-decoration: underline;
-}
-
-.button-color {
-  width: 60px;
-  height: 30px;
-  position: relative;
-  margin: 7px 61px;
-}
-
-.colorpicker {
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-}
