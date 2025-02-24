@@ -31,7 +31,7 @@ function menuUpDown(text) {
   // Add necessary classes based on position
   menu.classList.add(`menu-${text}`);
   social.classList.add(`social-${getOppositePosition(text)}`);
-  category.classList.add(`category-${getOppositePosition(text)}`);
+  category.classList.add(`category-${text}`);
 
   // Toggle side-related classes for menu and social grid
   const isSide = text === "left" || text === "right";
@@ -108,190 +108,86 @@ function menu(text) {
 }
 
 // Load menu position from localStorage and set it
-menu(window.localStorage.getItem("Text") || "top");
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-///// This section is for changing the theme into dark or light
-
-var localStoragedarktrue = window.localStorage.getItem("Dark");
-
-if (localStoragedarktrue === "true") {
-  document.querySelector("#dark").style.left = "43%";
-  changeTheme();
-} else if (localStoragedarktrue === "false") {
-  document.querySelector("#dark").style.left = "0%";
-  noChangeTheme();
-}
-
-function theme() {
-  var right = document.querySelector("#dark").style.left === "43%";
-
-  if (right) {
-    document.querySelector("#dark").style.left = "0%";
-    window.localStorage.setItem("Dark", false);
-    noChangeTheme();
-  } else {
-    document.querySelector("#dark").style.left = "43%";
-    window.localStorage.setItem("Dark", true);
-    changeTheme();
-  }
-}
+window.addEventListener("DOMContentLoaded", () =>
+  menu(window.localStorage.getItem("Text") || "top")
+);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///// This section is common for theme
+// Theme toggle logic with localStorage
+const darkToggle = document.querySelector("#dark");
 
-function changeTheme() {
-  document.querySelector("body").style.backgroundColor = "black";
-
-  var header = document.querySelector("header");
-  header.style.borderBottom = "6px solid white";
-  header.style.backgroundImage = "linear-gradient(to right, white, black)";
-
-  document.querySelector("header h1").style.color = "black";
-  document.querySelector("header .log a").style.color = "white";
-
-  document.querySelector(".menu").style.borderBottom = "3px solid #8e8e8e";
-
-  var category = document.querySelector(".category");
-  category.style.backgroundColor = "#8e8e8e";
-  category.style.color = "white";
-
-  var contentName = document.querySelectorAll(".content-name");
-  for (i = 0; i < contentName.length; i++) {
-    contentName[i].style.color = "white";
-  }
-
-  var download = document.querySelectorAll(".download");
-  for (i = 0; i < download.length; i++) {
-    download[i].style.backgroundColor = "#8e8e8e";
-  }
-
-  var descripton = document.querySelectorAll(".description");
-  for (i = 0; i < descripton.length; i++) {
-    descripton[i].style.color = "white";
-  }
-
-  var readMoreA = document.querySelectorAll(".read-more-a");
-  for (i = 0; i < readMoreA.length; i++) {
-    readMoreA[i].style.color = "white";
-  }
-
-  var inputText = document.querySelectorAll(".inputtext");
-  for (i = 0; i < inputText.length; i++) {
-    inputText[i].style.color = "#8e8e8e";
-  }
-
-  var inputButton = document.querySelectorAll(".inputbutton");
-  for (i = 0; i < inputButton.length; i++) {
-    inputButton[i].style.backgroundColor = "#8e8e8e";
-  }
-
-  var settingContentIndex = document.querySelectorAll(".setting-content-index");
-  for (i = 0; i < settingContentIndex.length; i++) {
-    settingContentIndex[i].style.color = "white";
-  }
-
-  var buttonName = document.querySelectorAll(".button-name");
-  for (i = 0; i < buttonName.length; i++) {
-    buttonName[i].style.color = "white";
-  }
-
-  var buttonBack = document.querySelectorAll(".button-back");
-  for (i = 0; i < buttonBack.length; i++) {
-    buttonBack[i].style.backgroundColor = "#8e8e8e";
-  }
-
-  var bottomright = document.querySelector("#bottom").style.left === "43%";
-  var rightright = document.querySelector("#right").style.left === "43%";
-  var leftright = document.querySelector("#left").style.left === "43%";
-  var topright = document.querySelector("#top").style.left === "43%";
-
-  if (rightright || leftright) {
-    document.querySelector(".menu").style.backgroundColor = "#8e8e8e";
-    document.querySelector(".social").style.backgroundColor = "black";
-  } else if (topright || bottomright) {
-    document.querySelector(".menu").style.backgroundColor = "black";
-    document.querySelector(".social").style.backgroundColor = "rgb(15,15,15)";
-  }
+function applyTheme(isDarkMode) {
+  darkToggle.style.left = isDarkMode ? "43%" : "0%";
+  isDarkMode ? changeTheme() : noChangeTheme();
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////
+// Function to toggle theme on user interaction
+function toggleTheme() {
+  const isActive = darkToggle.style.left === "43%";
+  const newMode = !isActive;
+  window.localStorage.setItem("Dark", newMode);
+  applyTheme(newMode);
+}
 
+// Retrieve and apply the theme from localStorage on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const isDarkMode = window.localStorage.getItem("Dark") === "true";
+  applyTheme(isDarkMode);
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Function to toggle dark mode classes
+function toggleDarkMode(enable) {
+  document.body.classList.toggle("body-dark", enable);
+
+  const elements = [
+    { selector: "header", className: "header-dark" },
+    { selector: "header h1", className: "header-h1-dark" },
+    { selector: "header .log a", className: "header-log-a-dark" },
+    { selector: ".menu", className: "menu-dark" },
+    { selector: ".category", className: "category-dark" },
+    { selector: ".social", className: "social-dark" },
+  ];
+
+  const nodeLists = [
+    { selector: ".content-name", className: "content-name-dark" },
+    { selector: ".download", className: "download-dark" },
+    { selector: ".description", className: "description-dark" },
+    { selector: ".read-more-a", className: "read-more-a-dark" },
+    { selector: ".inputtext", className: "inputtext-dark" },
+    { selector: ".inputbutton", className: "inputbutton-dark" },
+    {
+      selector: ".setting-content-index",
+      className: "setting-content-index-dark",
+    },
+    { selector: ".button-name", className: "button-name-dark" },
+    { selector: ".button-back", className: "button-back-dark" },
+  ];
+
+  // Toggle single elements
+  elements.forEach(({ selector, className }) => {
+    const element = document.querySelector(selector);
+    if (element) element.classList.toggle(className, enable);
+  });
+
+  // Toggle NodeList elements
+  nodeLists.forEach(({ selector, className }) => {
+    document.querySelectorAll(selector).forEach((element) => {
+      element.classList.toggle(className, enable);
+    });
+  });
+}
+
+// Function to enable dark mode
+function changeTheme() {
+  toggleDarkMode(true);
+}
+
+// Function to disable dark mode
 function noChangeTheme() {
-  document.querySelector("body").style.backgroundColor = "white";
-
-  var header = document.querySelector("header");
-  header.style.borderBottom = "6px solid black";
-  header.style.backgroundImage = "linear-gradient(to right, black, #c30d0d)";
-
-  document.querySelector("header h1").style.color = "white";
-  document.querySelector("header .log a").style.color = "white";
-
-  document.querySelector(".menu").style.borderBottom = "3px solid #560606";
-
-  var category = document.querySelector(".category");
-  category.style.backgroundColor = "#560606";
-  category.style.color = "white";
-
-  var contentName = document.querySelectorAll(".content-name");
-  for (i = 0; i < contentName.length; i++) {
-    contentName[i].style.color = "black";
-  }
-
-  var download = document.querySelectorAll(".download");
-  for (i = 0; i < download.length; i++) {
-    download[i].style.backgroundColor = "#560606";
-  }
-
-  var descripton = document.querySelectorAll(".description");
-  for (i = 0; i < descripton.length; i++) {
-    descripton[i].style.color = "black";
-  }
-
-  var readMoreA = document.querySelectorAll(".read-more-a");
-  for (i = 0; i < readMoreA.length; i++) {
-    readMoreA[i].style.color = "black";
-  }
-
-  var inputText = document.querySelectorAll(".inputtext");
-  for (i = 0; i < inputText.length; i++) {
-    inputText[i].style.color = "#560606";
-  }
-
-  var inputButton = document.querySelectorAll(".inputbutton");
-  for (i = 0; i < inputButton.length; i++) {
-    inputButton[i].style.backgroundColor = "#560606";
-  }
-
-  var settingContentIndex = document.querySelectorAll(".setting-content-index");
-  for (i = 0; i < settingContentIndex.length; i++) {
-    settingContentIndex[i].style.color = "#560606";
-  }
-
-  var buttonName = document.querySelectorAll(".button-name");
-  for (i = 0; i < buttonName.length; i++) {
-    buttonName[i].style.color = "#560606";
-  }
-
-  var buttonBack = document.querySelectorAll(".button-back");
-  for (i = 0; i < buttonBack.length; i++) {
-    buttonBack[i].style.backgroundColor = "#560606";
-  }
-
-  var bottomright = document.querySelector("#bottom").style.left === "43%";
-  var rightright = document.querySelector("#right").style.left === "43%";
-  var leftright = document.querySelector("#left").style.left === "43%";
-  var topright = document.querySelector("#top").style.left === "43%";
-
-  if (rightright || leftright) {
-    document.querySelector(".menu").style.backgroundColor = "#560606";
-    document.querySelector(".social").style.backgroundColor = "white";
-  } else if (topright || bottomright) {
-    document.querySelector(".menu").style.backgroundColor = "black";
-    document.querySelector(".social").style.backgroundColor = "white";
-  }
+  toggleDarkMode(false);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
