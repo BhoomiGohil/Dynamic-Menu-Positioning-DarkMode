@@ -19,6 +19,10 @@ body {
   background-color: #9e9e9e1a;
 }
 
+.body-dark {
+  background-color: black;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -60,10 +64,19 @@ header {
   background-image: linear-gradient(to right, black, #c30d0d);
 }
 
+.header-dark {
+  border-color: white;
+  background-image: linear-gradient(to right, white, black);
+}
+
 header h1 {
   cursor: pointer;
   font-size: 30px;
   color: white;
+}
+
+.header-h1-dark {
+  color: black;
 }
 
 header .log {
@@ -73,6 +86,10 @@ header .log {
 
 header .log a {
   color: white;
+}
+
+.header-log-a-dark {
+  color: black;
 }
 
 /* --------------------------------------- Section --------------------------------------- */
@@ -101,6 +118,10 @@ section {
   z-index: 1;
   background-color: black;
   border-bottom: 3px solid #560606;
+}
+
+.menu-dark {
+  border-color: #8e8e8e;
 }
 
 .menu-top {
@@ -172,7 +193,7 @@ section {
 }
 
 .category {
-  width: 100%;
+  width: 100px;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -184,6 +205,11 @@ section {
   position: absolute;
   text-align: center;
   z-index: 1;
+}
+
+.category-dark {
+  background-color: #8e8e8e;
+  color: white;
 }
 
 .category-top {
@@ -206,7 +232,6 @@ section {
 /* --------------------------------------- Social --------------------------------------- */
 .social {
   width: 100%;
-  background-color: White;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -216,6 +241,11 @@ section {
   bottom: 0%;
   left: 0%;
   z-index: 1;
+  background-color: White;
+}
+
+.social-dark {
+  background-color: black;
 }
 
 .social-top {
@@ -328,7 +358,12 @@ section {
   font-size: medium;
   font-weight: lighter;
   font-family: 'Raleway', sans-serif;
+  color: black;
   border-bottom: 1px solid #8080801a;
+}
+
+.content-name-dark {
+  color: white;
 }
 
 .content-description {
@@ -371,6 +406,11 @@ section {
   cursor: pointer;
 }
 
+.download-dark {
+  background-color: white;
+  color: black;
+}
+
 .description {
   width: 100%;
   color: black;
@@ -380,6 +420,10 @@ section {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.description-dark {
+  color: white;
+}
+
 .read-more {
   cursor: pointer;
   font-size: smaller;
@@ -387,6 +431,10 @@ section {
 
 .read-more-a {
   color: black;
+}
+
+.read-more-a-dark {
+  color: white;
 }
 
 /* --------------------------------------- Gallery --------------------------------------- */
@@ -434,6 +482,10 @@ section {
   font-family: 'Raleway', sans-serif;
 }
 
+.inputtext-dark {
+  color: #8e8e8e;
+}
+
 .inputbutton {
   width: 100%;
   height: 50px;
@@ -444,6 +496,10 @@ section {
   font-size: 12px;
   font-family: 'Raleway', sans-serif;
   background-color: #560606;
+}
+
+.inputbutton-dark {
+  background-color: #8e8e8e;
 }
 
 .textmsg {
@@ -472,6 +528,10 @@ section {
   font-weight: bold;
 }
 
+.setting-content-index-dark {
+  color: white;
+}
+
 .setting-button-box {
   width: 95%;
   min-height: 35px;
@@ -490,6 +550,10 @@ section {
   color: #560606;
 }
 
+.button-name-dark {
+  color: white;
+}
+
 .button-back {
   width: 60px;
   height: 30px;
@@ -497,6 +561,10 @@ section {
   border-radius: 20px;
   position: relative;
   margin: 7px 61px;
+}
+
+.button-back-dark {
+  background-color: #8e8e8e;
 }
 
 .button-ball {
