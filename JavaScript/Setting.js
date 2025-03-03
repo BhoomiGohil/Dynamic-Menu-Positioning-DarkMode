@@ -12,15 +12,15 @@ const hideCategory = () =>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Function to set the menu position
-function menuUpDown(text) {
+// Function to update menu position based on switch state
+function updateMenuPosition(position) {
   const menu = document.querySelector(".menu");
   const menuGrid = document.querySelector(".menu-grid");
   const category = document.querySelector(".category");
   const social = document.querySelector(".social");
   const socialGrid = document.querySelector(".socialgrid");
 
-  // Reset all classes
+  // Reset all position classes
   const positions = ["top", "right", "bottom", "left"];
   positions.forEach((pos) => {
     menu.classList.remove(`menu-${pos}`);
@@ -28,15 +28,18 @@ function menuUpDown(text) {
     category.classList.remove(`category-${pos}`);
   });
 
-  // Add necessary classes based on position
-  menu.classList.add(`menu-${text}`);
-  social.classList.add(`social-${getOppositePosition(text)}`);
-  category.classList.add(`category-${text}`);
+  // Apply the new position
+  menu.classList.add(`menu-${position}`);
+  social.classList.add(`social-${getOppositePosition(position)}`);
+  category.classList.add(`category-${position}`);
 
   // Toggle side-related classes for menu and social grid
-  const isSide = text === "left" || text === "right";
+  const isSide = position === "left" || position === "right";
   menuGrid.classList.toggle("menu-grid-sides", isSide);
   socialGrid.classList.toggle("socialgrid-sides", isSide);
+
+  // Save the selection in localStorage
+  localStorage.setItem("MenuPosition", position);
 }
 
 // Helper function to get the opposite position
@@ -46,101 +49,60 @@ function getOppositePosition(position) {
   ];
 }
 
-// Function to set menu positions
-function setMenuValue(position) {
-  const positions = {
-    top: {
-      top: "43%",
-      right: "0%",
-      bottom: "0%",
-      left: "0%",
-      storage: [true, false, false, false],
-    },
-    right: {
-      top: "0%",
-      right: "43%",
-      bottom: "0%",
-      left: "0%",
-      storage: [false, true, false, false],
-    },
-    bottom: {
-      top: "0%",
-      right: "0%",
-      bottom: "43%",
-      left: "0%",
-      storage: [false, false, true, false],
-    },
-    left: {
-      top: "0%",
-      right: "0%",
-      bottom: "0%",
-      left: "43%",
-      storage: [false, false, false, true],
-    },
-  };
+// Function to handle switch toggling
+function handleSwitchChange(event) {
+  const selectedSwitch = event.target;
+  const selectedPosition = selectedSwitch.id;
 
-  if (positions[position]) {
-    const { top, right, bottom, left, storage } = positions[position];
+  // If the same switch is clicked again, keep it checked
+  if (selectedSwitch.checked) {
+    // Uncheck all other switches
+    document.querySelectorAll(".menu-switch").forEach((switchEl) => {
+      if (switchEl !== selectedSwitch) {
+        switchEl.checked = false;
+      }
+    });
 
-    document.querySelector("#top").style.left = top;
-    document.querySelector("#right").style.left = right;
-    document.querySelector("#bottom").style.left = bottom;
-    document.querySelector("#left").style.left = left;
-
-    window.localStorage.setItem("Top", storage[0]);
-    window.localStorage.setItem("Right", storage[1]);
-    window.localStorage.setItem("Bottom", storage[2]);
-    window.localStorage.setItem("Left", storage[3]);
+    // Apply the new position
+    updateMenuPosition(selectedPosition);
+  } else {
+    // If user unchecks the last active switch, reset to "top"
+    const anyChecked = [...document.querySelectorAll(".menu-switch")].some(
+      (switchEl) => switchEl.checked
+    );
+    if (!anyChecked) {
+      document.querySelector("#top").checked = true; // Force "Top" to be checked
+      updateMenuPosition("top");
+    }
   }
 }
 
-// Main function for menu handling
-function menuinner(text) {
-  const isActive = document.querySelector(`#${text}`).style.left === "0%";
-  setMenuValue(isActive ? text : "top"); // Default to "top" when deactivating
-  menuUpDown(isActive ? text : "top");
-}
+// Initialize switch states on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const savedPosition = localStorage.getItem("MenuPosition") || "top";
 
-// Wrapper function to save state in localStorage
-function menu(text) {
-  window.localStorage.setItem("Text", text);
-  menuinner(text);
-}
+  // Apply saved position
+  updateMenuPosition(savedPosition);
 
-// Load menu position from localStorage and set it
-window.addEventListener("DOMContentLoaded", () =>
-  menu(window.localStorage.getItem("Text") || "top")
-);
+  var savedPositionSwitch = document.querySelector(`#${savedPosition}`);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Set the corresponding switch to checked
+  if (savedPositionSwitch) savedPositionSwitch.checked = true;
 
-// Theme toggle logic with localStorage
-const darkToggle = document.querySelector("#dark");
-
-function applyTheme(isDarkMode) {
-  darkToggle.style.left = isDarkMode ? "43%" : "0%";
-  isDarkMode ? changeTheme() : noChangeTheme();
-}
-
-// Function to toggle theme on user interaction
-function toggleTheme() {
-  const isActive = darkToggle.style.left === "43%";
-  const newMode = !isActive;
-  window.localStorage.setItem("Dark", newMode);
-  applyTheme(newMode);
-}
-
-// Retrieve and apply the theme from localStorage on page load
-window.addEventListener("DOMContentLoaded", () => {
-  const isDarkMode = window.localStorage.getItem("Dark") === "true";
-  applyTheme(isDarkMode);
+  // Attach event listeners to menu switches
+  document.querySelectorAll(".menu-switch").forEach((switchEl) => {
+    switchEl.addEventListener("change", handleSwitchChange);
+  });
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Function to toggle dark mode classes
-function toggleDarkMode(enable) {
-  document.body.classList.toggle("body-dark", enable);
+// Select the dark mode toggle switch
+const darkModeSwitch = document.querySelector("#darkModeSwitch");
+
+// Function to apply theme based on the checkbox state
+function applyTheme(isDarkMode) {
+  document.body.classList.toggle("body-dark", isDarkMode);
 
   const elements = [
     { selector: "header", className: "header-dark" },
@@ -169,23 +131,30 @@ function toggleDarkMode(enable) {
   // Toggle single elements
   elements.forEach(({ selector, className }) => {
     const element = document.querySelector(selector);
-    if (element) element.classList.toggle(className, enable);
+    if (element) element.classList.toggle(className, isDarkMode);
   });
 
   // Toggle NodeList elements
   nodeLists.forEach(({ selector, className }) => {
     document.querySelectorAll(selector).forEach((element) => {
-      element.classList.toggle(className, enable);
+      element.classList.toggle(className, isDarkMode);
     });
+  });
+
+  // Save the state to localStorage
+  localStorage.setItem("Dark", isDarkMode);
+}
+
+if (darkModeSwitch) {
+  // Event listener for the toggle switch
+  darkModeSwitch.addEventListener("change", () => {
+    applyTheme(darkModeSwitch.checked);
   });
 }
 
-// Function to enable dark mode
-function changeTheme() {
-  toggleDarkMode(true);
-}
-
-// Function to disable dark mode
-function noChangeTheme() {
-  toggleDarkMode(false);
-}
+// Load theme from localStorage on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const isDarkMode = localStorage.getItem("Dark") === "true";
+  if (darkModeSwitch) darkModeSwitch.checked = isDarkMode;
+  applyTheme(isDarkMode);
+});
