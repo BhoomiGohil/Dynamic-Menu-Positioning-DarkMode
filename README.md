@@ -1,21 +1,51 @@
-# Css-Website
+# Dynamic Menu Positioning with Switch Controls & Dark Mode
 
-<h1>Home</h1>
+## 📌 Overview
 
-<img src = "Home.png">
+This project enables users to:  
+✅ Change the position of a menu (Top, Right, Bottom, Left) using switches.  
+✅ Toggle **Dark Mode** for better user experience.  
+✅ Maintain selected settings using `localStorage`.
 
-<h1>Dark Home Top</h1>
+## 🚀 Features
 
-<img src = "Home Top Dark.png">
+- 🎛️ **Switch-based menu positioning**
+- 🌙 **Dark Mode toggle for better visibility**
+- 🔄 **Automatic state persistence using localStorage**
+- 🎯 **Ensures at least one active switch (default: Top)**
+- 🖥️ **Dynamic UI updates for a smooth experience**
 
-<h1> Dark Home Right</h1>
+## 🛠️ Technologies Used
 
-<img src = "Home Right Dark.png">
+- **HTML** for structure
+- **CSS** for styling (including Dark Mode support)
+- **JavaScript** for interactivity
 
-<h3> Dark Home Bottom</h1>
+## 📖 How It Works
 
-<img src = "Home Bottom Dark.png">
+### **1️⃣ Menu Positioning**
 
-<h1> Dark Home Left</h1>
+- Click on a switch (**Top, Right, Bottom, Left**) to move the menu.
+- The selected position is stored in `localStorage`.
+- If no other switch is active, the **Top** switch remains checked.
 
-<img src = "Home Left Dark.png">
+### **2️⃣ Dark Mode**
+
+- Click the **Dark Mode Toggle** to switch between Light and Dark modes.
+- The preference is saved in `localStorage` and applied on page load.
+
+## ⚡ Usage
+
+1. Open `index.html` in a browser.
+2. Use the switches to change the menu's position.
+3. Toggle **Dark Mode** using the provided switch.
+4. Refresh the page to see the persistence feature in action.
+
+## 🔥 Preview
+
+![Project Preview](preview.png) _(Replace with actual screenshot)_
+
+## 🌟 Future Enhancements
+
+- ✅ Add smooth animations for better transitions
+- ✅ Improve accessibility for better usability
