@@ -43,7 +43,7 @@ This project enables users to:
 
 ## 🔥 Preview
 
-![Project Preview](preview.png) _(Replace with actual screenshot)_
+![Project Preview](preview.png)
 
 ## 🌟 Future Enhancements
 
